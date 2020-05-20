@@ -1,8 +1,12 @@
 [package]
 name = "getter-derive-rs"
+description = "A dead-simple and intentional getter derive macro crate."
 version = "1.0.0"
-authors = ["Utkarsh Bhardwaj (Passeriform) <bhardwajutkarsh.ub@gmail.com>"]
+authors = ["Utkarsh Bhardwaj (Passeriform) <passeriform.ub@gmail.com>"]
 readme = "README.md"
+license = "MIT"
+repository = "https://github.com/Passeriform/getter-derive-rs"
+homepage = "https://www.passeriform.com/prod/getter-derive-rs"
 edition = "2018"
 
 [lib]
