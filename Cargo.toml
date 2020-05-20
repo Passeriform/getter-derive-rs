@@ -1,0 +1,14 @@
+[package]
+name = "getter-derive-rs"
+version = "1.0.0"
+authors = ["Utkarsh Bhardwaj (Passeriform) <bhardwajutkarsh.ub@gmail.com>"]
+readme = "README.md"
+edition = "2018"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = "1.0.19"
+quote = "1.0.4"
+proc-macro2 = "1.0.12"
