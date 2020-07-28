@@ -5,11 +5,13 @@ use syn::{Data, DataStruct, DeriveInput, Fields};
 // Getter derive macro
 #[proc_macro_derive(Getter)]
 pub fn getter_derive(input: TokenStream) -> TokenStream {
-    let input = syn::parse_macro_input!(input as DeriveInput);
+    let ast = syn::parse_macro_input!(input as DeriveInput);
 
-    let struct_name = &input.ident;
+    let generics = ast.generics.clone();
 
-    let fields = match &input.data {
+    let struct_name = &ast.ident;
+
+    let fields = match &ast.data {
         Data::Struct(DataStruct {
             fields: Fields::Named(fields),
             ..
@@ -33,7 +35,7 @@ pub fn getter_derive(input: TokenStream) -> TokenStream {
         .collect::<Vec<_>>();
 
     TokenStream::from(quote! {
-        impl #struct_name {
+        impl #generics #struct_name #generics {
             #( pub fn #getter_names (&self) -> #field_types {
                 self.#field_names.clone()
             } )*
